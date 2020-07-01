@@ -7,7 +7,7 @@ const AlbumsRoute = () => <Text>Albums</Text>;
 
 const RecentsRoute = () => <Text>Recents</Text>;
 
-const MyComponent = () => {
+const BottomNav = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'music', title: 'Music', icon: 'queue-music' },
@@ -30,4 +30,4 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default BottomNav;
