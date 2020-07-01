@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { BottomNavigation, Text, Button } from 'react-native-paper';
 import BottomNav from './components/bottomNav'
 import { Provider as PaperProvider } from 'react-native-paper';
+import AppNav from './components/appNav'
 
 const App = () => {
   return (
     <PaperProvider>
-      <BottomNav/>      
+      <AppNav/>
+      <BottomNav/>
     </PaperProvider>
   )
 };

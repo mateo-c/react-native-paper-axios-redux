@@ -3,6 +3,7 @@ import { BottomNavigation } from 'react-native-paper';
 import HomeScreen from '../screens/HomeScreen'
 import MatchScreen from '../screens/MatchScreen'
 import UserScreen from '../screens/UserScreen'
+import colores from '../shared/colores';
 
 const HomeRoute = () => <HomeScreen/>;
 
@@ -13,9 +14,9 @@ const UserRoute = () => <UserScreen/>;
 const BottomNav = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'home', icon: 'home', color: '#3F51B5' },
-    { key: 'match', icon: 'magnify', color: '#009688' },
-    { key: 'user', icon: 'account', color: 'brown' },
+    { key: 'home', icon: 'home', color: colores.primary },
+    { key: 'match', icon: 'magnify', color: colores.primary },
+    { key: 'user', icon: 'account', color: colores.primary },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
