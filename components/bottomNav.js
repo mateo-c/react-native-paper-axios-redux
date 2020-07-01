@@ -1,24 +1,27 @@
 import * as React from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
+import HomeScreen from '../screens/HomeScreen'
+import MatchScreen from '../screens/MatchScreen'
+import UserScreen from '../screens/UserScreen'
 
-const MusicRoute = () => <Text>Music</Text>;
+const HomeRoute = () => <HomeScreen/>;
 
-const AlbumsRoute = () => <Text>Albums</Text>;
+const MatchRoute = () => <MatchScreen/>;
 
-const RecentsRoute = () => <Text>Recents</Text>;
+const UserRoute = () => <UserScreen/>;
 
 const BottomNav = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'music', title: 'Music', icon: 'queue-music' },
-    { key: 'albums', title: 'Albums', icon: 'album' },
-    { key: 'recents', title: 'Recents', icon: 'history' },
+    { key: 'home', icon: 'queue-music' },
+    { key: 'match', icon: 'album' },
+    { key: 'user', icon: 'history' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    music: MusicRoute,
-    albums: AlbumsRoute,
-    recents: RecentsRoute,
+    home: HomeRoute,
+    match: MatchRoute,
+    user: UserRoute,
   });
 
   return (
