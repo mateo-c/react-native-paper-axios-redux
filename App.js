@@ -1,24 +1,26 @@
 import * as React from 'react';
 import { BottomNavigation, Text, Button } from 'react-native-paper';
+import ListAccordion from './components/ListAccordion';
 
-const MusicRoute = () => <Text><Button icon="camera" mode="contained" onPress={() => console.log('Pressed')}>Press me</Button></Text>;
 
-const AlbumsRoute = () => <Text>Albums</Text>;
+const HomeRoute = () => <Text><ListAccordion></ListAccordion></Text>;
 
-const RecentsRoute = () => <Text>Recents</Text>;
+const ChatRoute = () => <Text>Chat</Text>;
+
+const ProfileRoute = () => <Text>Profile</Text>;
 
 const MyComponent = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'music', title: 'Music', icon: 'queue-music' },
-    { key: 'albums', title: 'Albums', icon: 'album' },
-    { key: 'recents', title: 'Recents', icon: 'history' },
+    { key: 'Home', title: 'Social', icon : require('./assets/home.png')} ,
+    { key: 'Chat', title: 'Match', icon: require('./assets/chat-outline.png') },
+    { key: 'Profile', title: 'Profile', icon: require('./assets/account.png') },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    music: MusicRoute,
-    albums: AlbumsRoute,
-    recents: RecentsRoute,
+    Home: HomeRoute,
+    Chat: ChatRoute,
+    Profile: ProfileRoute,
   });
 
   return (
