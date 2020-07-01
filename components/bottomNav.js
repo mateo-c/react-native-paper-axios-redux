@@ -13,9 +13,9 @@ const UserRoute = () => <UserScreen/>;
 const BottomNav = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'home', icon: 'queue-music' },
-    { key: 'match', icon: 'album' },
-    { key: 'user', icon: 'history' },
+    { key: 'home', icon: 'home', color: '#3F51B5' },
+    { key: 'match', icon: 'magnify', color: '#009688' },
+    { key: 'user', icon: 'account', color: 'brown' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
@@ -29,6 +29,7 @@ const BottomNav = () => {
       navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={renderScene}
+      shifting={true}
     />
   );
 };
