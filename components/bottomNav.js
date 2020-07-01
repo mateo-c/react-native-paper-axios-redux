@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { BottomNavigation, Text, Button } from 'react-native-paper';
+import { BottomNavigation, Text } from 'react-native-paper';
 
-const MusicRoute = () => <Text><Button icon="camera" mode="contained" onPress={() => console.log('Pressed')}>Press me</Button></Text>;
+const MusicRoute = () => <Text>Music</Text>;
 
 const AlbumsRoute = () => <Text>Albums</Text>;
 
