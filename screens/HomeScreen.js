@@ -3,6 +3,16 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 import MiniaturaPerro from '../components/miniaturaPerro';
 
+import newApi from '../apis/pets'
+
+
+async function getMascotas(){
+    var listado = await newApi.get()
+    console.log(listado);
+    return listado.data
+}
+
+
 const DATA = [ //deberia llegar desde la db
   {
     nombre: 'Pipo',

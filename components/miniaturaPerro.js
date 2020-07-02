@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Card, Title} from 'react-native-paper';
 
 
 export default function MiniaturaPerro (props) {
