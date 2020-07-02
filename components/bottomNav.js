@@ -1,24 +1,28 @@
 import * as React from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
+import HomeScreen from '../screens/HomeScreen'
+import MatchScreen from '../screens/MatchScreen'
+import UserScreen from '../screens/UserScreen'
+import colores from '../shared/colores';
 
-const MusicRoute = () => <Text>Music</Text>;
+const HomeRoute = () => <HomeScreen/>;
 
-const AlbumsRoute = () => <Text>Albums</Text>;
+const MatchRoute = () => <MatchScreen/>;
 
-const RecentsRoute = () => <Text>Recents</Text>;
+const UserRoute = () => <UserScreen/>;
 
-const MyComponent = () => {
+const BottomNav = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'music', title: 'Music', icon: 'queue-music' },
-    { key: 'albums', title: 'Albums', icon: 'album' },
-    { key: 'recents', title: 'Recents', icon: 'history' },
+    { key: 'home', icon: 'home', color: colores.primary },
+    { key: 'match', icon: 'magnify', color: colores.primary },
+    { key: 'user', icon: 'account', color: colores.primary },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    music: MusicRoute,
-    albums: AlbumsRoute,
-    recents: RecentsRoute,
+    home: HomeRoute,
+    match: MatchRoute,
+    user: UserRoute,
   });
 
   return (
@@ -26,8 +30,9 @@ const MyComponent = () => {
       navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={renderScene}
+      shifting={true}
     />
   );
 };
 
-export default MyComponent;
+export default BottomNav;
