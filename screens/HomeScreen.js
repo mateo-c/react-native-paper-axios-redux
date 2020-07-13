@@ -2,10 +2,27 @@ import React from 'react';
 import { SafeAreaView, FlatList, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import MiniaturaPerro from '../components/miniaturaPerro';
+import axios from 'axios';
 
 class HomeScreen extends React.Component {
+  state = {
+    DATA: []
+  }
 
-  
+  componentDidMount() {
+    axios.get(`http://www.hotdogort.ml/api/pets`)
+      .then(res => {
+        const DATA = res.data.map(item => {
+          let objeto = {
+            nombre: item.dogNick,
+            image: item.dogPic
+          }
+          return objeto
+        })
+        this.setState({ DATA });
+      })
+  }
+
   render() {
 
     function Item({ nombre, image }) {
@@ -13,21 +30,6 @@ class HomeScreen extends React.Component {
         <MiniaturaPerro nombre={nombre} image={image} />
       );
     }
-
-    const DATA = [ //deberia llegar desde la db
-      {
-        nombre: 'Pipo',
-        image: 'https://i.imgur.com/TUQvrsV.jpg'
-      },
-      {
-        nombre: 'Tiago',
-        image: 'https://i.imgur.com/69SUs49g.jpg'
-      },
-      {
-        nombre: 'Chichi',
-        image: 'https://i.imgur.com/k1yVI.jpg'
-      },
-    ];
 
     const styles = StyleSheet.create({
       container: {
@@ -48,7 +50,7 @@ class HomeScreen extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <FlatList
-          data={DATA}
+          data={this.state.DATA}
           renderItem={({ item }) => <Item nombre={item.nombre} image={item.image} />}
         />
       </SafeAreaView>
