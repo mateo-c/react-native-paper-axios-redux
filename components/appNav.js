@@ -1,14 +1,19 @@
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
 import colores from '../shared/colores'
+import changeDog from './changeDog'
+/*
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+*/
 
 
-const AppNav = () => {
-  const _goBack = () => console.log('Went back');
+const AppNav = ({ navigation }) => {
+  const _goBack = () =>  navigation.goBack();
 
   const _handleSearch = () => console.log('Searching');
 
-  const _handleMore = () => console.log('Shown more');
+  const _handleMore = () => changeDog();
 
   return (
     <Appbar.Header theme={temita}>
